@@ -4,11 +4,16 @@ import random
 import string
 from dotenv import load_dotenv
 
-# Charger le token depuis .env
+# Charger le .env local si présent (pour tests locaux)
 load_dotenv()
-token = os.getenv("GITHUB_TOKEN")
-username = os.getenv("GITHUB_USERNAME")
-print(f"Token chargé : {token}")  # Vérifie que le token est bien lu
+
+token = os.getenv("TOKEN_GITHUB")
+username = os.getenv("USER_NAME")
+
+if not token or not username:
+    raise ValueError("Le token ou username n'est pas chargé ! Vérifie le .env ou les secrets GitHub Actions")
+
+print(f"Token et username chargés ✅")  # Pas de valeur réelle affichée
 
 # -----------------------------
 # Test 1 : GET /user/repos avec auth
@@ -18,11 +23,7 @@ def test_get_user_repos():
     headers = {"Authorization": f"token {token}"}
 
     response = requests.get(url, headers=headers)
-
-    # Vérifie que la requête a réussi
     assert response.status_code == 200
-
-    # Vérifie que la réponse est bien une liste de repos
     assert isinstance(response.json(), list)
 
 # -----------------------------
@@ -30,43 +31,34 @@ def test_get_user_repos():
 # -----------------------------
 def test_get_user_repos_without_auth():
     url = "https://api.github.com/user/repos"
-    
     response = requests.get(url)
-    
-    # Vérifie que la requête renvoie 401 Unauthorized
     assert response.status_code == 401, f"Status code reçu : {response.status_code}"
 
 # -----------------------------
-# Test 3 : POST /user/repos + DELETE (cleanup) comme test
+# Test 3 : POST /user/repos + DELETE (cleanup)
 # -----------------------------
 def test_create_and_delete_repo():
     url = "https://api.github.com/user/repos"
     headers = {"Authorization": f"token {token}"}
-    
+
     # Générer un nom de repo unique
     repo_name = "test-repo-" + ''.join(random.choices(string.ascii_lowercase + string.digits, k=6))
-    
+
     payload = {
         "name": repo_name,
         "description": "Repo créé pour test automatique",
         "private": False
     }
-    
+
     # Créer le repo
     response = requests.post(url, headers=headers, json=payload)
     assert response.status_code == 201, f"Status code reçu : {response.status_code}"
     assert response.json()["name"] == repo_name
-    print(f"Repo créé avec succès : {repo_name}")
-    
-    # -----------------------------
-    # DELETE : supprimer le repo comme test
-    # -----------------------------
+
+    # Supprimer le repo
     delete_url = f"https://api.github.com/repos/{username}/{repo_name}"
     del_response = requests.delete(delete_url, headers=headers)
-    
-    # Vérifie que la suppression a réussi (204)
     assert del_response.status_code == 204, f"Le repo n'a pas été supprimé : {del_response.status_code}"
-    print(f"Repo supprimé avec succès : {repo_name}")
 
 # -----------------------------
 # Exécution directe pour python Test_api.py
