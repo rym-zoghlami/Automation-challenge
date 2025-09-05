@@ -23,7 +23,11 @@ jobs:
           python-version: '3.8'
 
       - name: Install dependencies
-        run: python -m pip install -r scripts/requirements.txt
+        run: pip install requests pytest python-dotenv
+
+      - name: Run API tests
+        run: pytest Test_api.py -v
+
 
       - name: Validate Markdown format
         run: python scripts/validate/format.py ${FILENAME}
