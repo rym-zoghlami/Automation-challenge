@@ -1900,3 +1900,7 @@ API | Description | Auth | HTTPS | CORS |
 
 - [GitHub REST API](https://docs.github.com/en/rest) 
 - Tests d’authentification, récupération des dépôts, création et suppression de dépôt via Pytest et GitHub Actions.
+
+
+## Automation Challenge
+- Exemple de lien [Google](https://www.google.com)
