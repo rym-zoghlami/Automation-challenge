@@ -1894,7 +1894,7 @@ API | Description | Auth | HTTPS | CORS |
 [MIT](LICENSE) (c) 2022 public-apis
 
 
-# Public APIs
+
 
 ## Automation-challenge
 
