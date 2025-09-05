@@ -4,7 +4,7 @@ import random
 import string
 from dotenv import load_dotenv
 
-# Charger le token et username depuis .env ou secrets GitHub Actions
+# Charger le token et username depuis .env ou GitHub Actions secrets
 load_dotenv()
 token = os.getenv("TOKEN_GITHUB")
 username = os.getenv("USER_NAME")
@@ -39,8 +39,6 @@ def test_get_user_repos_without_auth():
     
     # GitHub peut renvoyer 401 ou 403 selon le contexte
     assert response.status_code in [401, 403], f"Status code reçu : {response.status_code}"
-
-
 
 # -----------------------------
 # Test 3 : POST /user/repos + DELETE (cleanup) comme test
