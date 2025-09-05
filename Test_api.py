@@ -35,7 +35,7 @@ def test_get_user_repos_without_auth():
     assert response.status_code == 401, f"Status code reçu : {response.status_code}"
 
 # -----------------------------
-# Test 3 : POST /user/repos + DELETE (cleanup)
+# Test 3 : POST /user/repos + DELETE 
 # -----------------------------
 def test_create_and_delete_repo():
     url = "https://api.github.com/user/repos"
