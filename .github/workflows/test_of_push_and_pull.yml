@@ -7,7 +7,8 @@ on:
     branches: [ main ]
 
 env:
-  FILENAME: README.md
+  TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+  USER_NAME: ${{ secrets.USER_NAME }}
 
 jobs:
   tests:
