@@ -73,3 +73,7 @@ To run only the links tests, run:
 ```bash
 $ python -m unittest discover tests/ --verbose --pattern "test_validate_links.py"
 ```
+## Automation-challenge
+
+- [GitHub REST API](https://docs.github.com/en/rest) 
+- Tests d’authentification, récupération des dépôts, création et suppression de dépôt via Pytest et GitHub Actions.
