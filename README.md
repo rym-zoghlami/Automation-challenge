@@ -1896,11 +1896,10 @@ API | Description | Auth | HTTPS | CORS |
 
 
 
-## Automation-challenge
 
-- [GitHub REST API](https://docs.github.com/en/rest) 
-- Tests d’authentification, récupération des dépôts, création et suppression de dépôt via Pytest et GitHub Actions.
+
 
 
 ## Automation Challenge
-- Exemple de lien [Google](https://www.google.com)
+- [Automation Challenge Repo](https://github.com/rym-zoghlami/Automation-challenge)
+
