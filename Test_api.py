@@ -29,10 +29,15 @@ def test_get_user_repos():
 # -----------------------------
 # Test 2 : GET /user/repos sans auth
 # -----------------------------
+# Test 2 : GET /user/repos sans auth
 def test_get_user_repos_without_auth():
     url = "https://api.github.com/user/repos"
+    
     response = requests.get(url)
-    assert response.status_code == 401, f"Status code reçu : {response.status_code}"
+    
+    # GitHub renvoie maintenant 403 au lieu de 401 pour les requêtes sans auth
+    assert response.status_code == 403, f"Status code reçu : {response.status_code}"
+
 
 # -----------------------------
 # Test 3 : POST /user/repos + DELETE 
