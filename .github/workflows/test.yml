@@ -10,15 +10,23 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
+      # Ces variables viennent directement des secrets GitHub
       TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
       USER_NAME: ${{ secrets.USER_NAME }}
     steps:
+      # 1️⃣ Cloner le repo
       - uses: actions/checkout@v3
+
+      # 2️⃣ Installer Python
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+
+      # 3️⃣ Installer les dépendances
       - name: Install dependencies
         run: pip install requests pytest python-dotenv
-      - name: Run tests
-        run: pytest Test_api.py
+
+      # 4️⃣ Lancer les tests
+      - name: Run API tests
+        run: pytest Test_api.py -v
