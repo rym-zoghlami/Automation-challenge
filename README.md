@@ -17,6 +17,12 @@ Join our [Discord server](https://discord.com/invite/hgjA78638n/?utm_source=Gith
 
 <br >
 
+## Automation-challenge
+
+- [GitHub REST API](https://docs.github.com/en/rest) 
+- Tests d’authentification, récupération des dépôts, création et suppression de dépôt via Pytest et GitHub Actions.
+
+
 ## APILayer APIs
 | API | Description | Call this API |
 |:---|:---|:---|
