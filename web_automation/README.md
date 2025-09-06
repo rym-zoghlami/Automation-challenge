@@ -29,4 +29,18 @@ web_automation/
 │ ├── test_login.py
 │ ├── test_failed_login.py
 │ └── test_add_to_cart.py
-└── requirements.txt
+├── requirements.txt
+└── README.md
+
+
+
+## Installation
+
+1. Cloner le projet :
+   ```bash
+   git clone https://github.com/ton-username/web_automation.git
+   cd web_automation
+
+
+ 
+
