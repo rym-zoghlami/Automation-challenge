@@ -1900,6 +1900,4 @@ API | Description | Auth | HTTPS | CORS |
 
 
 
-## Automation Challenge
-- [Automation Challenge Repo](https://github.com/rym-zoghlami/Automation-challenge)
 
