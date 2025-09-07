@@ -14,9 +14,9 @@ if not token or not username:
 
 print(f"Token chargé : {token}")  # Vérifie que le token est bien lu
 
-# -----------------------------
+
 # Test 1 : GET /user/repos avec auth
-# -----------------------------
+
 def test_get_user_repos():
     url = "https://api.github.com/user/repos"
     headers = {"Authorization": f"token {token}"}
@@ -29,9 +29,9 @@ def test_get_user_repos():
     # Vérifie que la réponse est bien une liste de repos
     assert isinstance(response.json(), list)
 
-# -----------------------------
+
 # Test 2 : GET /user/repos sans auth
-# -----------------------------
+
 def test_get_user_repos_without_auth():
     url = "https://api.github.com/user/repos"
     
@@ -40,9 +40,9 @@ def test_get_user_repos_without_auth():
     # GitHub peut renvoyer 401 ou 403 selon le contexte
     assert response.status_code in [401, 403], f"Status code reçu : {response.status_code}"
 
-# -----------------------------
-# Test 3 : POST /user/repos + DELETE (cleanup) comme test
-# -----------------------------
+
+# Test 3 : POST /user/repos + DELETE 
+
 def test_create_and_delete_repo():
     url = "https://api.github.com/user/repos"
     headers = {"Authorization": f"token {token}"}

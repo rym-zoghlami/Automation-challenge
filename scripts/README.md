@@ -73,7 +73,29 @@ To run only the links tests, run:
 ```bash
 $ python -m unittest discover tests/ --verbose --pattern "test_validate_links.py"
 ```
+
+## Install Dependencies
+```bash
+$ python -m pip install -r scripts/requirements.txt
+```
+## Run validations
+### format validation
+```bash
+$ python scripts/validate/format.py README.md
+```
+### link validation
+```bash
+$ python scripts/validate/links.py README.md
+```
 ## Automation Challenge
 
 ### Repositories
 - [Automation Challenge Repo](https://github.com/rym-zoghlami/Automation-challenge) - Repository contenant les tests automatisés
+
+# Installation dépendances API
+cd api_automation
+pip install -r requirements.txt
+
+## Run API Tests
+cd Public_APIS
+pytest scripts/tests/Test_api.py 

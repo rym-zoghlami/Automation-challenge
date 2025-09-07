@@ -14,7 +14,7 @@ Les tests sont réalisés avec **Python 3.10**, **Selenium**, **pytest** et **we
 ## Prérequis
 - Python 3.10+
 - pip
-- Google Chrome (ou autre navigateur)
+- Google Chrome 
 
 ---
 
@@ -42,5 +42,11 @@ web_automation/
    cd web_automation
 
 
- 
+ # Installation dépendances Web
+cd ../web_automation
+pip install -r requirements.txt
 
+## Run Web Tests
+pytest tests/test_add_to_cart.py 
+pytest tests/test_failed_login.py
+pytest tests/test_login.py
