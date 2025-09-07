@@ -43,7 +43,7 @@ def get_categories_content(contents: List[str]) -> Tuple[Categories, CategoriesL
 
     categories = {}
     category_line_num = {}
-    category = None  # initialisation pour éviter UnboundLocalError
+    category = None  # Initialisation explicite à None
 
     for line_num, line_content in enumerate(contents):
 
@@ -62,8 +62,13 @@ def get_categories_content(contents: List[str]) -> Tuple[Categories, CategoriesL
 
         title_match = link_re.match(raw_title)
         if title_match:
+            # CORRECTION CRITIQUE : Vérifier que category n'est pas None
+            if category is not None:
                 title = title_match.group(1).upper()
                 categories[category].append(title)
+            else:
+                # Message d'avertissement pour les liens sans catégorie
+                print(f"Warning: Link found without category at line {line_num + 1}: {raw_title}")
 
     return (categories, category_line_num)
 
