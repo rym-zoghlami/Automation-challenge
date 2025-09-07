@@ -28,7 +28,7 @@ jobs:
         run: pip install requests pytest python-dotenv
 
       - name: Run API tests
-        run: pytest tests/test_api.py -v
+        run: pytest test_api.py -v
 
       - name: Validate Markdown format
         run: python scripts/validate/format.py ${FILENAME}
