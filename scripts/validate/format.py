@@ -43,6 +43,7 @@ def get_categories_content(contents: List[str]) -> Tuple[Categories, CategoriesL
 
     categories = {}
     category_line_num = {}
+    category = None  # initialisation pour éviter UnboundLocalError
 
     for line_num, line_content in enumerate(contents):
 
