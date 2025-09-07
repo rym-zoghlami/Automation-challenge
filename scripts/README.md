@@ -73,3 +73,7 @@ To run only the links tests, run:
 ```bash
 $ python -m unittest discover tests/ --verbose --pattern "test_validate_links.py"
 ```
+## Automation Challenge
+
+### Repositories
+- [Automation Challenge Repo](https://github.com/rym-zoghlami/Automation-challenge) - Repository contenant les tests automatisés
