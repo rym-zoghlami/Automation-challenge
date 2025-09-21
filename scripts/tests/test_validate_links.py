@@ -2,11 +2,12 @@
 
 import unittest
 
-from validate.links import find_links_in_text
-from validate.links import check_duplicate_links
-from validate.links import fake_user_agent
-from validate.links import get_host_from_link
-from validate.links import has_cloudflare_protection
+# IMPORTS CORRIGÉS :
+from scripts.validate.links import find_links_in_text
+from scripts.validate.links import check_duplicate_links
+from scripts.validate.links import fake_user_agent
+from scripts.validate.links import get_host_from_link
+from scripts.validate.links import has_cloudflare_protection
 
 
 class FakeResponse():
