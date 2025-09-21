@@ -9,9 +9,9 @@ token = os.getenv("TOKEN_GITHUB")
 username = os.getenv("USER_NAME")
 
 if not token or not username:
-    print("⚠️  Token or username not found - using mock values for testing")
-    token = "mock_token_for_testing"
-    username = "test_user"
+    print(" Token or username not found - using mock values for testing")
+    token = "TOKEN_GITHUB"
+    username = "USER_NAME"
 
 def test_get_user_repos():
     url = "https://api.github.com/user/repos"
