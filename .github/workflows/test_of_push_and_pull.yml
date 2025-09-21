@@ -1,5 +1,4 @@
 name: "Tests of push & pull"
-
 on:
   push:
     branches: [ main ]
@@ -28,7 +27,7 @@ jobs:
         run: pip install requests pytest python-dotenv
 
       - name: Run API tests
-        run: pytest scripts/tests/Test_api.py -v
+        run: pytest scripts/tests/test_api.py -v
 
       - name: Validate Markdown format
         run: python scripts/validate/format.py ${FILENAME}
