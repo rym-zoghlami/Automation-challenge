@@ -77,8 +77,8 @@ def test_create_and_delete_repo():
 # -----------------------------
 if __name__ == "__main__":
     test_get_user_repos()
-    print("Test 1 passé ✅")
+    print("Test 1 passé ")
     test_get_user_repos_without_auth()
-    print("Test 2 passé ✅")
+    print("Test 2 passé ")
     test_create_and_delete_repo()
-    print("Test 3 passé ✅")
+    print("Test 3 passé ")
