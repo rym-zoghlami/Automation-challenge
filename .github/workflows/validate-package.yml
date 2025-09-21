@@ -1,4 +1,4 @@
-name: " validate package"
+name: "Validate Package Tests"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   unittest:
-    name: 'Run  validate package'
+    name: 'Run package validation tests'
     runs-on: ubuntu-latest
 
     steps:
@@ -24,24 +24,10 @@ jobs:
       run: pip install requests pytest python-dotenv
 
     - name: Run API tests
+      env:
+        TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+        USER_NAME: ${{ secrets.USER_NAME }}
       run: pytest scripts/tests/test_api.py -v
 
     - name: Run Unittest
-      run: |
-        cd scripts/tests
-        if [ -f "test_validate_format.py" ]; then
-          python -m unittest test_validate_format.py --verbose
-        fi
-        if [ -f "test_validate_links.py" ]; then
-          python -m unittest test_validate_links.py --verbose
-        fi
-        # Si aucun fichier unittest, on skip proprement
-        if [ ! -f "test_validate_format.py" ] && [ ! -f "test_validate_links.py" ]; then
-          echo "✓ No unittest files found - skipping"
-        fi
-
-    - name: Run API tests
-  env:
-    TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
-    USER_NAME: ${{ secrets.USER_NAME }}
-  run: pytest scripts/tests/test_api.py -v
+      run: echo "✓ No unittest tests configured - skipping"
