@@ -1,4 +1,4 @@
-name: "Tests of validate package"
+name: " validate package"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   unittest:
-    name: 'Run tests of validate package'
+    name: 'Run  validate package'
     runs-on: ubuntu-latest
 
     steps:
